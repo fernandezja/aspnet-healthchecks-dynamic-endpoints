@@ -1,0 +1,56 @@
+﻿@page
+@model ManagerModel
+@{
+    ViewData["Title"] = "Health Check Manager";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+
+<h3>Add random url</h3>
+<form method="post">
+    <label>Add random URL ()</label><br />
+    <span class="form-text text-muted ">Add check API https://swapi.dev/api</span>
+    <br />
+    <button type="submit" 
+            class="btn btn-primary" 
+            name="btnAddUrlRandom" 
+            asp-page-handler="AddUrlRandom">Add Random Url</button>
+</form>
+
+<p>&nbsp;</p>
+
+<h3>Add custom url</h3>
+
+<form method="post">
+    <label>Name</label>
+    <input type="text" name="name" class="form-control" value="" />
+  
+    <label>Url</label> 
+    <input type="text" name="url" class="form-control" value="" />
+    
+    <button type="submit" class="btn btn-primary" name="btnAddUrl" asp-page-handler="AddUrl">Add Url</button>
+</form>
+
+
+<h3>Remove by name</h3>
+
+<form method="post">
+    <label>Name</label>
+    <input type="text" name="name" class="form-control" value="" />
+
+    <button type="submit" class="btn btn-danger" name="btnRemoveByName" asp-page-handler="RemoveByName">Remove by Name</button>
+</form>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
